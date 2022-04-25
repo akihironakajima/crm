@@ -1,0 +1,28 @@
+<%= form_with(model: @estimate) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <table class="table center-block">
+    <tr>
+      <th><%= f.label :name, "氏名" %></th>
+      <td><%= f.text_field :name, value: @estimate.name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :address, "住所" %></th>
+      <td><%= f.text_field :address, value: @estimate.address %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :tel, "電話番号" %></th>
+      <td><%= f.text_field :tel, value: @estimate.tel %></td>
+    </tr>
+  </table>
+
+  <div class="row justify-content-sm-center">
+    <div class="col-sm-auto">
+      <%= link_to "戻る", estimate_path(@estimate.id), class: "btn btn-secondary" %>
+    </div>
+    <div class="col-sm-auto">
+      <%= f.submit '保存', class: "btn btn-primary" %>
+    </div>
+  </div>  
+
+<% end %>

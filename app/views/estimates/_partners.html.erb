@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-sm-center">
+    <div class="col-sm-auto"><a href="<%= estimate_path(estimate) %>"><%= estimate.name %></a></div>
+    <div class="col-sm-auto">様へのマッチング候補</div>
+  </div>
+</div>
+
+<div class="container">
+  <% partners.each do |partner| %>
+    <div class="row mt-1 justify-content-sm-center">
+      <div class="col-1"><%= partner.name %></div>
+      <div class="col-1">
+        <%= render "matchings/matching_button", partner: partner, estimate: estimate %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<% if estimate.matched?(partner) %>
+  <p>選択済み</p>
+<% else %>
+  <%= form_with(model: estimate.matchings.build) do |f| %>
+    <%= hidden_field_tag :partner_id, partner.id %>
+    <%= hidden_field_tag :estimate_id, estimate.id %>
+    <%= f.submit '選択', class: 'btn btn-primary btn-block' %>
+  <% end %>
+<% end %>

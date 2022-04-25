@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :estimates
+  root to: "sessions#new"
+  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  
+  resources :estimates do
+    member do
+      get :matchings
+      post :matchings, to: "matchings#create"
+    end
+  end
+  resources :partners
+  resources :matchings, only: [:create]
 end

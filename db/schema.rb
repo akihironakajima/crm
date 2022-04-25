@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_15_134604) do
+ActiveRecord::Schema.define(version: 2022_04_18_051722) do
 
   create_table "estimates", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -20,4 +20,25 @@ ActiveRecord::Schema.define(version: 2022_04_15_134604) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "matchings", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "partner_id", null: false
+    t.bigint "estimate_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["estimate_id"], name: "index_matchings_on_estimate_id"
+    t.index ["partner_id", "estimate_id"], name: "index_matchings_on_partner_id_and_estimate_id", unique: true
+    t.index ["partner_id"], name: "index_matchings_on_partner_id"
+  end
+
+  create_table "partners", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.boolean "admin"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "matchings", "estimates"
+  add_foreign_key "matchings", "partners"
 end
