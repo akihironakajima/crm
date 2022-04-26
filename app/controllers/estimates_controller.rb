@@ -16,6 +16,7 @@ class EstimatesController < ApplicationController
 
   def create
     @estimate = Estimate.new(estimate_params)
+    @estimate.status = "未面談"
 
     if @estimate.save
       flash[:success] = '見積依頼者を登録しました。'
@@ -32,6 +33,10 @@ class EstimatesController < ApplicationController
   
   def update
     @estimate = Estimate.find(params[:id])
+    
+    if @estimate.status == "未面談"
+      @estimate.status = "面談済み"
+    end
 
     if @estimate.update(estimate_params)
       flash[:success] = "見積依頼者 は正常に更新されました"
@@ -50,6 +55,6 @@ class EstimatesController < ApplicationController
   private
 
   def estimate_params
-    params.require(:estimate).permit(:name, :address, :tel, :content)
+    params.require(:estimate).permit(:name, :address, :tel, :content, :status)
   end
 end

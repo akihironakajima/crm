@@ -3,6 +3,7 @@ class Estimate < ApplicationRecord
   validates :address, presence: true, length: { maximum: 255 }
   validates :tel, presence: true, length: { maximum: 255 }
   validates :content, length: { maximum: 2000 }
+  validates :status, length: { maximum: 255 }
   has_many :matchings
   has_many :matched_partner, through: :matchings, source: :partner
   

@@ -3,6 +3,7 @@
     <thead>
       <th>登録日時</th>
       <th>氏名</th>
+      <th>ステータス</th>
       <th>住所</th>
       <th>電話番号</th>
       <th>面談内容</th>
@@ -11,6 +12,7 @@
       <tr>
         <td><%= estimate.created_at.to_s(:datetime_jp) %></td>
         <td><%= link_to estimate.name, estimate_path(estimate.id) %></td>
+        <td><%= estimate.status %></td>
         <td><%= estimate.address %></td>
         <td><%= estimate.tel %></td>
         <td><%= estimate.content %></td>
