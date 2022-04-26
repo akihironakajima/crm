@@ -12,6 +12,7 @@
       <th>氏名</th>
       <th>住所</th>
       <th>電話番号</th>
+      <th>面談内容</th>
     </thead>
     <% estimates.each do |estimate| %>
       <tr>
@@ -19,6 +20,7 @@
         <td><%= estimate.name %></td>
         <td><%= estimate.address %></td>
         <td><%= estimate.tel %></td>
+        <td><%= estimate.content %></td>
       </tr>
     <% end %>
   </table>

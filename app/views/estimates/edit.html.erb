@@ -14,6 +14,10 @@
       <th><%= f.label :tel, "電話番号" %></th>
       <td><%= f.text_field :tel, value: @estimate.tel, class: 'form-control' %></td>
     </tr>
+    <tr>
+      <th><%= f.label :content, "面談内容" %></th>
+      <td><%= f.text_field :content, value: @estimate.content, class: 'form-control' %></td>
+    </tr>
   </table>
 
   <div class="row justify-content-sm-center">

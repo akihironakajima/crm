@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_18_051722) do
+ActiveRecord::Schema.define(version: 2022_04_26_062449) do
 
   create_table "estimates", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_051722) do
     t.string "tel"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "content"
   end
 
   create_table "matchings", charset: "utf8mb4", force: :cascade do |t|

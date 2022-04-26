@@ -50,6 +50,6 @@ class EstimatesController < ApplicationController
   private
 
   def estimate_params
-    params.require(:estimate).permit(:name, :address, :tel)
+    params.require(:estimate).permit(:name, :address, :tel, :content)
   end
 end
